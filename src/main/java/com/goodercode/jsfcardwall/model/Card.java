@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Card extends BaseModel {
+public class Card extends NamedModel {
 
     @ManyToOne
     private Phase currentPhase;

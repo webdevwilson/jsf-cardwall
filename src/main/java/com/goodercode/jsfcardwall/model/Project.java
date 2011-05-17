@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Project extends BaseModel {
+public class Project extends NamedModel {
 
     @OneToMany(mappedBy = "project")
     private Set<Phase> phases;
