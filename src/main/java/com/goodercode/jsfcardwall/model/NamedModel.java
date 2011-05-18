@@ -3,10 +3,14 @@ package com.goodercode.jsfcardwall.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public abstract class NamedModel extends BaseModel {
     
+    @NotNull
+    @Size(min = 3, max = 50)
     @Column(length = 50)
     protected String name;
 

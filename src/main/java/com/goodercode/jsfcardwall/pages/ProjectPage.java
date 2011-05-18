@@ -1,22 +1,26 @@
 package com.goodercode.jsfcardwall.pages;
 
-import com.goodercode.jsfcardwall.Entities;
 import com.goodercode.jsfcardwall.model.Project;
+import com.goodercode.jsfcardwall.persistence.Dao;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import static com.goodercode.jsfcardwall.jsf.JSFUtils.*;
 
 @Named
 @RequestScoped
 public class ProjectPage {
-
+    
     @Inject
-    private Entities entities;
+    private Dao dao;
     
     private Project project = new Project();
 
     public String save() {
-        entities.save(project);
+        dao.save(project);
+        getFacesContext().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "project.saved", ""));
         return "/index";
     }
     
@@ -25,7 +29,7 @@ public class ProjectPage {
     }
     
     public void setId(final Long id) {
-        project = entities.get(Project.class, id);
+        project = dao.get(Project.class, id);
     }
     
 }
