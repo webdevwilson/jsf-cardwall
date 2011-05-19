@@ -1,5 +1,4 @@
 body {
-    background-color: #ffffff;
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;  
@@ -27,3 +26,7 @@ a:link:hover, a:visited:hover  {
   font-weight : bold;
   text-decoration : underline;
 }
+
+ul.tiles li:hover { background-color: #036FAB; color: #ccc; }
+ul.tiles li.add { background-color: #cc3333; }
+ul.tiles li.add:hover { background-color: #036FAB; }

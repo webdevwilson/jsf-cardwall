@@ -10,7 +10,7 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Named
+@Named("dao")
 @ApplicationScoped
 public class JPADaoImpl implements Dao {
 
