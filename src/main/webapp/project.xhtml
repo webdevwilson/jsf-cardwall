@@ -3,7 +3,9 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.prime.com.tr/ui">
     <ui:define name="content">
-        <f:param name="id" value="#{projectPage.id}" />
+	<f:metadata>
+	    <f:param name="id" value="#{projectPage.id}" />
+	</f:metadata>
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel for="name" value="#{msgs['name']}" />
