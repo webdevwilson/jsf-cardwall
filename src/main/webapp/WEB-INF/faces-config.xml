@@ -6,7 +6,7 @@
 
     <application>
         <resource-bundle>
-            <base-name>com.goodercode.jsfcardwall.lang</base-name>
+            <base-name>com.goodercode.jsfcardwall.lang.messages</base-name>
             <var>msgs</var>
         </resource-bundle>
     </application>

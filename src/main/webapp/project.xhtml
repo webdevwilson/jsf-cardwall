@@ -1,17 +1,23 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" template="/WEB-INF/template.xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.prime.com.tr/ui">
     <ui:define name="content">
         <f:param name="id" value="#{projectPage.id}" />
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel for="name" value="#{msgs['name']}" />
-                <h:inputText value="#{projectPage.project.name}" />
+                <h:panelGroup>
+                    <h:inputText id="name" value="#{projectPage.project.name}" />
+                    <p:message for="name" display="text" />
+                </h:panelGroup>
                 <h:outputLabel for="description" value="#{msgs['description']}" />
-                <h:inputTextarea value="#{projectPage.project.description}" />
+                <h:panelGroup>
+                    <h:inputTextarea id="description" value="#{projectPage.project.description}" />
+                    <p:message for="description" display="text" />
+                </h:panelGroup>
             </h:panelGrid>
-            <h:inputSecret value="#{projectPage.id}" immediate="true" />
-            <h:button action="#{projectPage.save}" value="#{msgs['save']}" />
+            <h:commandButton action="#{projectPage.save}" value="#{msgs['save']}" />
         </h:form>
     </ui:define>
 </ui:composition>
