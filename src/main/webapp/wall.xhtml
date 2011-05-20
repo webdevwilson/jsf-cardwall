@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">    
+    <ui:composition template="/WEB-INF/template.xhtml">
+        <f:metadata>
+            <f:viewParam name="id" value="#{projectPage.project.id}"  />
+        </f:metadata>
+        <ui:define name="left">
+            <ul>
+                <li>
+                <h:outputLink value="project.xhtml">
+                    <f:param name="id" value="#{projectPage.project.id}" />
+                        #{msgs['edit.project']}
+                </h:outputLink>
+                </li>
+                <li>
+                <h:outputLink value="phases.xhtml" disabled="true">
+                    <f:param name="projectId" value="#{projectPage.project.id}" />
+                    #{msgs['manage.phases']}
+                </h:outputLink>
+                </li>
+                <li>
+                <h:outputLink value="card.xhtml" disabled="true">
+                    <f:param name="projectId" value="#{projectPage.project.id}" />
+                    #{msgs['create.new.card']}
+                </h:outputLink>
+                </li>
+            </ul>
+        </ui:define>
+        <ui:define name="content">
+            <h1>#{projectPage.project.name}</h1>
+            <h:form>
+                <c:if test="#{empty projectPage.project.phases}">
+                    #{msgs['project.has.no.phases']}
+                </c:if>
+                <ui:repeat value="#{projectPage.project.phases}" var="phase">
+                    <ul>
+                        <li>#{phase}</li>
+                    </ul>
+                </ui:repeat>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

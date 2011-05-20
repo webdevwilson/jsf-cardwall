@@ -21,29 +21,16 @@
     width: 150px;
 }
 
-#right {
-    float: right;
-    background-color: #ece3a5;
-    padding: 5px;
-    width: 150px;
-}
-
-.center_content {
-    position: relative;
-    background-color: #dddddd;
-    padding: 5px;
-}
-
 .left_content {
     background-color: #dddddd;
     padding: 5px;
     margin-left: 170px;
 }
 
-.right_content {
+.content {
     background-color: #dddddd;
     padding: 5px;
-    margin: 0px 170px 0px 170px;
+    margin: 0px 0px 0px 170px;
 }
 
 #top a:link, #top a:visited {

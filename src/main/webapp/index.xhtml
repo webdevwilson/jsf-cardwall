@@ -6,8 +6,8 @@
         <ui:define name="content">
             <ul class="tiles clearfix">
                 <ui:repeat value="#{dao.list('Project')}" var="project">
-                    <li class="ui-widget ui-widget-content" onclick="window.location='#{request.contextPath}/project.xhtml?id=#{project.id}';">
-                    <h:outputLink value="#{request.contextPath}/project.xhtml">
+                    <li class="ui-widget ui-widget-content" onclick="window.location='#{request.contextPath}/wall.xhtml?id=#{project.id}';">
+                    <h:outputLink value="#{request.contextPath}/wall.xhtml">
                         <f:param name="id" value="#{project.id}" />
                         <h:outputText value="#{project}" />
                     </h:outputLink>

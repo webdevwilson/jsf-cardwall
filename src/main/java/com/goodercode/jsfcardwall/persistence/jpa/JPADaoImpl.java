@@ -20,7 +20,11 @@ public class JPADaoImpl implements Dao {
     @Transactional
     @Override
     public void save(final BaseModel obj) {
-        em.persist(obj);
+        if(obj.getId() != null) {
+            em.merge(obj);
+        } else {
+            em.persist(obj);
+        }
     }
 
     @Override

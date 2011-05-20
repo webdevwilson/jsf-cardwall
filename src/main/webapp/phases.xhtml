@@ -3,23 +3,25 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.prime.com.tr/ui">
     <ui:define name="content">
-	<f:metadata>
-	    <f:viewParam name="id" value="#{projectPage.id}"  />
-	</f:metadata>
+        <f:metadata>
+            <f:viewParam name="projectId" value="#{projectPage.id}" />
+        </f:metadata>
         <h:form>
+            <h1>#{msgs['create.new.phase']}</h1>
+            <h:inputHidden value="#{param.projectId}" />
             <h:panelGrid columns="2">
                 <h:outputLabel for="name" value="#{msgs['name']}" />
                 <h:panelGroup>
-                    <h:inputText id="name" value="#{projectPage.project.name}" />
+                    <h:inputText id="name" value="#{projectPage.phase.name}" />
                     <p:message for="name" display="text" />
                 </h:panelGroup>
                 <h:outputLabel for="description" value="#{msgs['description']}" />
                 <h:panelGroup>
-                    <h:inputTextarea id="description" value="#{projectPage.project.description}" />
+                    <h:inputTextarea id="description" value="#{projectPage.phase.description}" />
                     <p:message for="description" display="text" />
                 </h:panelGroup>
             </h:panelGrid>
-            <p:commandButton action="#{projectPage.save}" value="#{msgs['save']}" />
+            <h:commandButton action="#{projectPage.addPhase}" value="#{msgs['save']}" />
         </h:form>
     </ui:define>
 </ui:composition>
