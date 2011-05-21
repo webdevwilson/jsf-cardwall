@@ -19,7 +19,11 @@
         </div>
         <div>
             <div id="left">
-                <ui:insert name="left">Left</ui:insert>
+                <ui:insert name="left">
+                    <ul>
+                        <li><h:outputLink value="index.xhtml">#{msgs['home']}</h:outputLink></li>
+                    </ul>
+                </ui:insert>
             </div>
             <div id="content" class="content">
                 <p:messages globalOnly="true" />
