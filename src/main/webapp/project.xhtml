@@ -2,10 +2,10 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.prime.com.tr/ui">
+    <f:metadata>
+        <f:viewParam name="id" value="#{projectPage.id}"  />
+    </f:metadata>
     <ui:define name="content">
-	<f:metadata>
-	    <f:viewParam name="id" value="#{projectPage.id}"  />
-	</f:metadata>
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel for="name" value="#{msgs['name']}" />

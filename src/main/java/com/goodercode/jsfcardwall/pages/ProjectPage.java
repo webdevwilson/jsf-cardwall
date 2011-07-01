@@ -18,8 +18,6 @@ public class ProjectPage {
     private Dao dao;
 
     private Project project = new Project();
-    
-    private Phase phase = new Phase();
 
     public String save() {
         final Boolean created = project.getId() == null;
@@ -28,12 +26,6 @@ public class ProjectPage {
         return "/index.xhtml?faces-redirect=true";
     }
     
-    public String addPhase() {
-        phase.setProject(project);
-        dao.save(phase);
-        return "/project.xhtml?faces-redirect=true";
-    }
-
     public Project getProject() {
         return project;
     }
@@ -44,13 +36,5 @@ public class ProjectPage {
     
     public Long getId() {
         return project.getId();
-    }
-
-    public Phase getPhase() {
-        return phase;
-    }
-
-    public void setPhase(Phase phase) {
-        this.phase = phase;
     }
 }

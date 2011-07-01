@@ -1,27 +1,54 @@
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" template="/WEB-INF/template.xhtml"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.prime.com.tr/ui">
-    <ui:define name="content">
-        <f:metadata>
-            <f:viewParam name="projectId" value="#{projectPage.id}" />
-        </f:metadata>
-        <h:form>
-            <h1>#{msgs['create.new.phase']}</h1>
-            <h:inputHidden value="#{param.projectId}" />
-            <h:panelGrid columns="2">
-                <h:outputLabel for="name" value="#{msgs['name']}" />
-                <h:panelGroup>
-                    <h:inputText id="name" value="#{projectPage.phase.name}" />
-                    <p:message for="name" display="text" />
-                </h:panelGroup>
-                <h:outputLabel for="description" value="#{msgs['description']}" />
-                <h:panelGroup>
-                    <h:inputTextarea id="description" value="#{projectPage.phase.description}" />
-                    <p:message for="description" display="text" />
-                </h:panelGroup>
-            </h:panelGrid>
-            <h:commandButton action="#{projectPage.addPhase}" value="#{msgs['save']}" />
-        </h:form>
-    </ui:define>
-</ui:composition>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+    <f:metadata>
+        <f:viewParam name="projectId" value="#{phasesPage.projectId}" />
+    </f:metadata>
+    <ui:composition template="/WEB-INF/template.xhtml">
+        <ui:define name="content">
+            <h:form>
+                <h1>#{msgs['create.new.phase']}</h1>
+                <h:inputHidden value="#{phasesPage.project.id}" />
+                <h:dataTable value="#{phasesPage.project.phases}" var="phase">
+                    <h:column>
+                        <f:facet name="header">#{msgs['order']}</f:facet>
+                        #{phasesPage.project.sortOrder}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs['name']}</f:facet>
+                        #{phasesPage.project.name}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msgs['description']}</f:facet>
+                        #{phasesPage.project.description}
+                    </h:column>
+                    <h:column>
+                        <h:commandLink action="#{phasesPage.moveUp}">
+                            <div class="ui-state-default ui-corner-all ui-icon ui-icon-circle-triangle-s"></div> 
+                        </h:commandLink>
+                    </h:column>
+                    <h:column>
+                        <h:commandLink action="#{phasesPage.moveDown}">
+                            <div class="ui-state-default ui-corner-all ui-icon ui-icon-circle-triangle-s"></div> 
+                        </h:commandLink>
+                    </h:column>
+                </h:dataTable>
+                <div>
+                    <h:outputLabel for="name" value="#{msgs['name']}" />
+                    <h:inputText value="#{phasesPage.phase.name}" />
+                </div>
+                <div>
+                    <h:outputLabel for="sortOrder" value="#{msgs['order']}" />
+                    <h:inputText value="#{phasesPage.phase.sortOrder}" />
+                </div>
+                <div>
+                    <h:outputLabel for="description" value="#{msgs['description']}" />
+                    <h:inputText value="#{phasesPage.phase.description}" />
+                </div>
+                <h:commandButton action="#{phasesPage.save}" value="#{msgs['add.phase']}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
