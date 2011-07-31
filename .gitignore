@@ -1,1 +1,10 @@
 target
+*/target
+faces-config.NavData
+*/faces-config.NavData
+nb-configuration.xml
+*/nb-configuration.xml
+nbactions.xml
+*/nbactions.xml
+pom.xml.releaseBackup
+*/pom.xml.releaseBackup
