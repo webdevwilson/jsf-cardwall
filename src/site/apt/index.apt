@@ -1,0 +1,8 @@
+JSF Card Wall
+
+* About
+
+    JSF Card Wall is an implementation of an agile card wall using JSF and CDI.  The goal
+is to target multiple platforms/technology stacks.  The project source code is hosted at {{{https://github.com/webdevwilson/jsf-cardwall}github}}.
+
+    

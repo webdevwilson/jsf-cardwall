@@ -6,11 +6,19 @@
     <artifactId>jsf-cardwall</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <url>https://github.com/webdevwilson/jsf-cardwall</url>
     
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+    <distributionManagement>
+        <site>
+            <id>website</id>
+            <url>scp://kerrywilson@goodercode.com/home/kerrywilson/goodercode.com/jsf-cardwall/</url>
+        </site>
+    </distributionManagement>
     
     <scm>
         <connection>scm:git:git@github.com:webdevwilson/jsf-cardwall.git</connection>
@@ -26,6 +34,20 @@
     
     <build>
         <plugins>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>2.2</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.wagon</groupId>
+                        <artifactId>wagon-ssh</artifactId>
+                        <version>1.0-beta-7</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -40,6 +62,16 @@
             </plugin>
         </plugins>
     </build>
+    
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.0.1</version>
+            </plugin>
+        </plugins>
+    </reporting>
     
     <dependencies>
         <dependency>

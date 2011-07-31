@@ -1,0 +1,21 @@
+Road Map
+
+    This is a loose idea of where the project is heading this is all subject to change.
+
+* Version 0.1
+
+    * Single project card wall
+
+    * Deploy to Google App Engine
+
+* Version 0.2 and beyond
+
+    * Multiple projects per user
+
+    * Deploy to JEE / JPA Stack
+
+    * Shared projects with multiple users
+
+    * Google app engine authentication integration
+
+        
